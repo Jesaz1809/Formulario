@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro de Estudiante</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        function validarFormulario(event) {
+            const numeroControl = document.getElementById('num_control').value;
+
+            // Verifica si el número de control empieza con "2084"
+            if (!numeroControl.startsWith('2084')) {
+                event.preventDefault(); // Evita el envío del formulario
+                alert('El número de control debe empezar con "2084".');
+                return;
+            }
+
+            // Verifica si el número de control tiene exactamente 8 dígitos
+            if (numeroControl.length !== 8) {
+                event.preventDefault(); // Evita el envío del formulario
+                alert('El número de control consta de 8 dígitos.');
+                return;
+            }
+
+            // Si pasa ambas validaciones, mostrar el mensaje de éxito
+            event.preventDefault(); // Evita el envío del formulario
+            mostrarMensajeExito(); // Llama a la función que muestra el mensaje
+        }
+
+        // Función para mostrar el mensaje de éxito
+        function mostrarMensajeExito() {
+            const formulario = document.querySelector('.formulario');
+            formulario.innerHTML = '<h2>Registro exitoso</h2><p>El estudiante ha sido registrado correctamente.</p>';
+            formulario.style.textAlign = 'center'; // Alinea el mensaje al centro
+            formulario.style.color = '#28a745'; // Cambia el color del texto a verde
+        }
+    </script>
+</head>
+<body>
+
+<div class="formulario">
+    <h2>Formulario de Registro de Estudiante</h2>
+    <form action="registro.php" method="post" onsubmit="validarFormulario(event)">
+        <!-- Número de control (Requerido) -->
+        <label for="num_control">Número de Control:</label>
+        <input type="text" id="num_control" name="num_control" required>
+
+        <!-- Apellido Paterno (No requerido) -->
+        <label for="apellido_paterno">Apellido Paterno:</label>
+        <input type="text" id="apellido_paterno" name="apellido_paterno">
+
+        <!-- Apellido Materno (No requerido) -->
+        <label for="apellido_materno">Apellido Materno:</label>
+        <input type="text" id="apellido_materno" name="apellido_materno">
+
+        <!-- Nombre (No requerido) -->
+        <label for="nombre">Nombre(s):</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <!-- Sexo (No requerido) -->
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo">
+            <option value="">Seleccione una opción</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
+        </select>
+
+        <!-- Fecha de Nacimiento (No requerido) -->
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+
+        <!-- Correo Electrónico (No requerido) -->
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo">
+
+        <!-- Celular (No requerido) -->
+        <label for="celular">Número de Celular:</label>
+        <input type="tel" id="celular" name="celular" pattern="[0-9]{10}">
+
+        <!-- Dirección (No requerido) -->
+        <label for="direccion">Dirección:</label>
+        <textarea id="direccion" name="direccion" rows="3"></textarea>
+
+        <!-- Período Escolar de Ingreso (No requerido) -->
+        <label for="periodo_escolar">Período Escolar de Ingreso:</label>
+        <select id="periodo_escolar" name="periodo_escolar">
+            <option value="">Seleccione una opción</option>
+            <option value="Enero-Junio">Enero - Junio 2024</option>
+            <option value="Agosto-Diciembre">Agosto - Diciembre 2024</option>
+            <option value="Enero-Junio">Enero - Junio 2023</option>
+            <option value="Agosto-Diciembre">Agosto - Diciembre 2023</option>
+            <option value="Enero-Junio">Enero - Junio 2022</option>
+            <option value="Agosto-Diciembre">Agosto - Diciembre 2022</option>
+            <option value="Enero-Junio">Enero - Junio 2021</option>
+            <option value="Agosto-Diciembre">Agosto - Diciembre 2021</option>
+        </select>
+
+        <!-- Carrera (No requerido) -->
+        <label for="carrera">Carrera:</label>
+        <select id="carrera" name="carrera">
+            <option value="">Seleccione una carrera</option>
+            <option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
+            <option value="Ingeniería Industrial">Ingeniería en Gestion Empresarial</option>
+            <option value="Ingeniería Civil">Ingeniería en Agronomia</option>
+            <option value="Ingeniería Mecatrónica">Licenciatura en Biologia</option>
+        </select>
+
+        <!-- Botón de Enviar -->
+        <input type="submit" value="Registrar Estudiante">
+        <p>Estoy de acuerdo con: <a href="#">Términos y Condiciones</a></p>
+    </form>
+</div>
+
+</body>
+</html>

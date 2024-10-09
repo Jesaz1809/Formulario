@@ -1,0 +1,63 @@
+/* Estilo para aplicar imagen de fondo */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('imagenes/ith.jpg');
+    background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene la imagen fija mientras se hace scroll */
+    margin: 0;
+    padding: 0;
+}
+
+/* Mantiene el diseño original del formulario */
+.formulario {
+    width: 60%;
+    margin: 50px auto;
+    background: rgba(239, 240, 242, 0.718); /* Fondo blanco con un poco de transparencia */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7); /* Sombra blanca suave */
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px; /* Aumenta el espacio entre campos */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #f21313; /* Cambia el borde a rojo al tener foco */
+    outline: none; /* Elimina el contorno por defecto */
+    box-shadow: 0 0 5px rgba(242, 19, 19, 0.5); /* Sombra sutil */
+}
+
+input[type="submit"] {
+    background-color: #f21313;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+input[type="submit"]:hover {
+    background-color: #c20f0f; /* Un rojo más oscuro para el hover */
+}
